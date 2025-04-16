@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^9.22.0",
     "husky": "^9.x.x",
     "lint-staged": "^15.x.x",
@@ -20,7 +21,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,css,md,json}": "prettier --write",
-    "client/src/**/*.{js,jsx}": "eslint --fix",
+    "client/src/**/*.{js,jsx}": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint --fix",
     "server/**/*.js": "eslint --fix"
   }
 }

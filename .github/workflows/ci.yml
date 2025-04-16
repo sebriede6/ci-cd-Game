@@ -1,0 +1,17 @@
+# .github/workflows/ci.yml (oder test-ci.yml, je nachdem wie du sie genannt hast)
+# Stelle sicher, dass am Ende dieser Kommentarzeile kein Leerzeichen ist.
+
+name: Simple CI Test # Stelle sicher, dass am Ende dieser Zeile kein Leerzeichen ist.
+
+on:
+  push:
+    branches: [ main ] # Oder dein Branch-Name, kein Leerzeichen am Ende.
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      # Achte auf korrekte Einrückung (2 Leerzeichen hier)
+      - name: Echo Message
+        # Achte auf korrekte Einrückung (4 Leerzeichen hier)
+        run: echo "GitHub Actions workflow is running!" # Stelle sicher, dass HIER definitiv kein Leerzeichen am Ende ist.
