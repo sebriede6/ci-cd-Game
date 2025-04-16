@@ -1,0 +1,6 @@
+npm test
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Führe lint-staged aus
+npx lint-staged

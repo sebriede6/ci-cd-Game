@@ -1,0 +1,53 @@
+/* client/src/App.css oder index.css */
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.App {
+  background-color: rgb(168, 107, 107);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+.scoreDisplay {
+  font-size: 2em;
+  margin: 20px 0;
+  color: #007bff;
+}
+
+.buttons button {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.buttons button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.buttons button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  margin-top: 15px;
+}
