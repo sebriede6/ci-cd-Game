@@ -147,4 +147,4 @@ function App() {
 }
 
 // Exportiere die App-Komponente, damit sie in main.jsx verwendet werden kann.
-export default App;
+export default App;   
