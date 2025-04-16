@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Optional aber sehr empfohlen:
+# Build output Verzeichnisse
+dist/
+client/dist/
+
+# Log files
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# Environment Variablen (niemals committen!)
+.env
+.env.*
+!.env.example # Erlaube eine Beispiel-Datei
+
+# Datenbankdatei (falls du die DB nicht versionieren willst)
+*.db
+server/*.db
+
+# OS-spezifische Dateien
+.DS_Store
+Thumbs.db
+
+# Editor-Konfigurationen (optional)
+.vscode/
+.idea/

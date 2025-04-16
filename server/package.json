@@ -1,22 +1,24 @@
 {
-  "name": "score-game-spa-root",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Root for client and server",
+  "type": "module",
+  "description": "Backend API for Score Game",
+  "main": "server.js",
   "scripts": {
-    "prepare": "husky install"
+    "start": "node server.js",
+    "lint": "eslint . --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "eslint": "^9.22.0",
-    "husky": "^9.x.x",
-    "lint-staged": "^15.x.x",
-    "prettier": "^3.x.x"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   },
-  "lint-staged": {
-    "*.{js,jsx,css,md,json}": "prettier --write",
-    "client/src/**/*.{js,jsx}": "eslint --fix",
-    "server/**/*.js": "eslint --fix"
+  "devDependencies": {
+    "eslint": "^9.22.0"
   }
 }

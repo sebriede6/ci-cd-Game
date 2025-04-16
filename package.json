@@ -1,14 +1,26 @@
 {
-  "name": "score-game-spa",
+  "name": "score-game-spa-root",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Root for client and server, contains shared dev tools",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
+    "prepare": "husky install",
+    "lint:client": "npm run lint --prefix client",
+    "lint:server": "npm run lint --prefix server",
+    "lint": "npm run lint:client && npm run lint:server",
+    "format": "prettier --write \"**/*.{js,jsx,css,md,json}\" --ignore-path .gitignore"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "description": ""
+  "devDependencies": {
+    "eslint": "^9.22.0",
+    "husky": "^9.x.x",
+    "lint-staged": "^15.x.x",
+    "prettier": "^3.x.x"
+  },
+  "lint-staged": {
+    "*.{js,jsx,css,md,json}": "prettier --write",
+    "client/src/**/*.{js,jsx}": "eslint --fix",
+    "server/**/*.js": "eslint --fix"
+  }
 }
