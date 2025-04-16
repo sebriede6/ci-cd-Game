@@ -1,73 +1,13 @@
-# .github/workflows/ci.yml
+# .github/workflows/test-ci.yml (oder überschreibe ci.yml)
+name: Simple CI Test
 
-name: Node.js CI/CD # Name des Workflows (wird in GitHub angezeigt)
-
-# Trigger: Wann soll der Workflow laufen?
 on:
   push:
-    branches: [ main ] # Bei Push auf den main Branch
-  pull_request:
-    branches: [ main ] # Bei Pull Requests, die auf den main Branch abzielen
+    branches: [ main ] # Oder dein Branch-Name
 
 jobs:
-  build-and-lint: # Name des Jobs (du kannst mehrere haben)
-    runs-on: ubuntu-latest # Auf welchem Betriebssystem soll der Job laufen?
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x] # Optional: Teste mit mehreren Node-Versionen
-        # Stelle sicher, dass diese Versionen mit deinem Code kompatibel sind
-
+  test-job:
+    runs-on: ubuntu-latest
     steps:
-      # 1. Code auschecken
-      - name: Checkout repository
-        uses: actions/checkout@v4 # Standard-Action zum Holen des Codes
-
-      # 2. Node.js einrichten (für die gewählte Version aus der Matrix)
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm' # Cache npm-Abhängigkeiten für schnellere Builds
-          cache-dependency-path: | # Pfade zu den lock-Dateien für den Cache
-            ./client/package-lock.json
-            ./server/package-lock.json
-            ./package-lock.json
-
-      # 3. Abhängigkeiten im Root installieren (für husky, lint-staged etc.)
-      #    Wir verwenden npm ci für konsistente Installationen basierend auf package-lock.json
-      - name: Install Root Dependencies
-        run: npm ci
-
-      # 4. Client-Abhängigkeiten installieren
-      - name: Install Client Dependencies
-        run: npm ci
-        working-directory: ./client # Wichtig: Im richtigen Ordner ausführen!
-
-      # 5. Server-Abhängigkeiten installieren
-      - name: Install Server Dependencies
-        run: npm ci
-        working-directory: ./server
-
-      # 6. Linting im Client ausführen (nutzt das Skript aus client/package.json)
-      - name: Run Client Linting
-        run: npm run lint
-        working-directory: ./client
-
-      # 7. Linting im Server ausführen (nutzt das Skript aus server/package.json)
-      - name: Run Server Linting
-        run: npm run lint # Stelle sicher, dass dieses Skript existiert!
-        working-directory: ./server
-
-      # 8. Frontend bauen (Vite Build)
-      - name: Build Client
-        run: npm run build
-        working-directory: ./client
-
-      # 9. (Optional) Backend Tests (wenn du welche hast)
-      # - name: Run Server Tests
-      #   run: npm test
-      #   working-directory: ./server
-
-      # --- Hier könnten Schritte für Deployment folgen ---
-      # z.B. Deployment zu Netlify, Vercel, AWS etc.
+      - name: Echo Message
+        run: echo "GitHub Actions workflow is running!"
